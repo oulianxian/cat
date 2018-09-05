@@ -1,6 +1,6 @@
 package com.kukuou.cat.controller;
 
-import com.kukuou.cat.common.service.UserServcie;
+import com.kukuou.cat.service.UserServcie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,7 +24,6 @@ public class UserController {
     }
 
     @RequestMapping("/addUser")
-
     public void addUser(String name, Integer age) {
         userServcie.addUser(name, age);
 
@@ -32,8 +31,8 @@ public class UserController {
 
     @RequestMapping("/deleteUser")
     @ResponseBody
-    public Integer deleteUser(Long id) {
-        return userServcie.deleteUser(id);
+    public void deleteUser(Long id) {
+          userServcie.deleteUser(id);
     }
 
 

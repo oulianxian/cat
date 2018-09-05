@@ -1,22 +1,36 @@
 package com.kukuou.cat.entity;
 
+import javax.persistence.*;
+
 /**
  * 用户
  *
  * @author olx
  * @date 2018/9/4/004
  */
+@Entity
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     /**
      * 姓名
      */
+    @Column(nullable = true)
     private String name;
     /**
      * 年龄
      */
+    @Column(nullable = true)
     private Integer age;
+
+    public User() {
+    }
+
+    public User(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;

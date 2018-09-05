@@ -1,6 +1,7 @@
-package com.kukuou.cat.common.service;
+package com.kukuou.cat.service;
 
 import com.kukuou.cat.entity.User;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public interface UserServcie {
     /**
      * 新增
      */
+    @Transactional
     void addUser(String name, Integer age);
 
     /**
@@ -20,7 +22,8 @@ public interface UserServcie {
      * @param id
      * @return
      */
-    Integer deleteUser(Long id);
+    @Transactional
+    void deleteUser(Long id);
 
     /**
      * 所有用户
@@ -30,6 +33,7 @@ public interface UserServcie {
     /**
      * 更新
      */
+    @Transactional
     void updateUser(Long id,String name, Integer age);
 
 }

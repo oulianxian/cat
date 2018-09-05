@@ -1,4 +1,4 @@
-package com.kukuou.cat.common.dao;
+package com.kukuou.cat.dao;
 
 import com.kukuou.cat.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class UserDao {
 
     @Transactional
     public void addUser(String name, Integer age) {
-        String sql = "insert into USER(NAME,AGEa) values(?,?)";
+        String sql = "insert into USER(NAME,AGE) values(?,?)";
         jdbcTemplate.update(sql, name, age);
     }
 
