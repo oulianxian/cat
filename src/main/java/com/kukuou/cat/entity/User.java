@@ -1,12 +1,14 @@
 package com.kukuou.cat.entity;
 
 /**
- * $introduce
+ * 用户
  *
  * @author olx
  * @date 2018/9/4/004
  */
 public class User {
+
+    private Long id;
     /**
      * 姓名
      */
@@ -15,6 +17,14 @@ public class User {
      * 年龄
      */
     private Integer age;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

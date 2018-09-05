@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<button type="button" class="btn btn-sm btn-default" style=" margin-bottom: -66px; margin-left: 14px;"> 新增</button>
+<table class="table table-bordered table-hover" style="max-width: 50%;">
+    <caption style="text-align:center;    caption-side: top;"> 会员管理</caption>
+    <thead>
+
+    <tr>
+        <th></th>
+        <th>会员名称</th>
+        <th>会员年龄</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr class="warning" th:each="user,state : ${usrList}"  th:attr="data-id=${user.id}">
+        <th class="lead"  th:th:text="${user.id!= null&&user.id !=''?user.id:'--'} "></th>
+        <th  class="lead" th:th:text="${user.name!= null&&user.name !=''?user.name:'--'} "></th>
+        <th  class="lead" th:th:text="${user.age!= null&&user.age !=''?user.age:'--'} "></th>
+        <th >
+            <button type="button" class="btn btn-sm btn-success"> 编辑</button>
+            <button type="button" class="btn btn-sm btn-danger"> 删除</button>
+        </th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
