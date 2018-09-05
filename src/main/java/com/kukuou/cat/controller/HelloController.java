@@ -31,7 +31,7 @@ public class HelloController {
     @ResponseBody
     @RequestMapping("/testError")
     public String responseError (){
-        throw new BusinessException("101", "测试错误test");
+        throw new BusinessException("101", "测试错误第三分支");
 
     }
 
