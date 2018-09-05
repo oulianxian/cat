@@ -32,6 +32,7 @@ public class HelloController {
     @RequestMapping("/testError")
     public String responseError (){
         throw new BusinessException("101", "测试错误");
+
     }
 
 }
