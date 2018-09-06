@@ -25,7 +25,10 @@ public class UserController {
     @RequestMapping("/")
     public String index(ModelMap modelMap) {
         modelMap.put("usrList", userServcie.listUser());
-        logger.error("oooo" + "当前类=UserController.index()" + "modelMap = [" + modelMap + "]");
+
+        logger.error("我是指定的Controller内指定的error日志");
+        logger.debug("我是指定的Controller内指定的debug日志");
+        logger.info("我是指定的Controller内指定的info日志");
         return "user";
     }
 
