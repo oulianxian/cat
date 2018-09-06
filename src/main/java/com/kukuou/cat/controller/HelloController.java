@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2018/9/4/004
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/hello")
 public class HelloController {
 
     @RequestMapping("/hello")

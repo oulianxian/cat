@@ -1,5 +1,7 @@
 package com.kukuou.cat.controller;
 
+import com.kukuou.cat.common.exception.BusinessException;
+import com.kukuou.cat.entity.User;
 import com.kukuou.cat.service.UserServcie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2018/9/5/005
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserServcie userServcie;
@@ -20,19 +22,28 @@ public class UserController {
     @RequestMapping("/")
     public String index(ModelMap modelMap) {
         modelMap.put("usrList", userServcie.listUser());
-       return "user";
+        return "user";
     }
 
     @RequestMapping("/addUser")
-    public void addUser(String name, Integer age) {
+    public String addUser(String name, Integer age) {
         userServcie.addUser(name, age);
-
+        return "success";
+    }
+    @RequestMapping("/findByName")
+    public String findByName(String name,ModelMap modelMap) {
+        User byName = userServcie.findByName(name);
+        if (byName == null) {
+             throw new BusinessException("NOt_FOUND", "分类不存在");
+        }
+        modelMap.put("user", byName);
+        return "detail";
     }
 
     @RequestMapping("/deleteUser")
     @ResponseBody
     public void deleteUser(Long id) {
-          userServcie.deleteUser(id);
+        userServcie.deleteUser(id);
     }
 
 

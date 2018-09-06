@@ -36,4 +36,5 @@ public interface UserServcie {
     @Transactional
     void updateUser(Long id,String name, Integer age);
 
+    User findByName(String name);
 }
