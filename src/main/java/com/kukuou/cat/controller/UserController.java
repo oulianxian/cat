@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2018/9/5/005
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
     @Autowired
     private UserServcie userServcie;
@@ -31,7 +31,7 @@ public class UserController {
         logger.info("我是指定的Controller内指定的info日志");
         return "user";
     }
-
+    //http://localhost:8080/addUser?name=lzh&age=22
     @RequestMapping("/addUser")
     public String addUser(String name, Integer age) {
         userServcie.addUser(name, age);
