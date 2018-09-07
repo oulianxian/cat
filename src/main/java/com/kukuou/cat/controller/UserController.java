@@ -31,8 +31,8 @@ public class UserController {
         logger.info("我是指定的Controller内指定的info日志");
         return "user";
     }
-    //http://localhost:8080/addUser?name=lzh&age=22
-    @RequestMapping("/addUser")
+    //http://localhost:8080/add?name=lzh&age=22
+    @RequestMapping("/add")
     public String addUser(String name, Integer age) {
         userServcie.addUser(name, age);
         return "success";
